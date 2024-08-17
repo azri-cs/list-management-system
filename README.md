@@ -20,9 +20,8 @@ This is a private Laravel project boilerplate designed to kickstart new web appl
 
 ## Prerequisites
 
-- PHP 8.0 or higher
-- Composer
-- Node.js and npm
+- PHP 8.2 or higher
+- Node.js v20 or higher
 
 ## Installation
 
