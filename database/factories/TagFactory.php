@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +21,9 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
+            'created_by' => User::factory(),
             'name' => $this->faker->unique()->words(2, true),
+            'color' => $this->faker->hexColor,
         ];
     }
 }

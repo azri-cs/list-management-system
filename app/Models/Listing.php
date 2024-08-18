@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -29,5 +30,12 @@ class Listing extends Model
     public function items(): HasMany
     {
         return $this->hasMany(ListingItem::class);
+    }
+
+    public function scopeListing(Builder $query): void
+    {
+        if (auth()->user()->hasRole('user')){
+            $query->where('created_by', auth()->id());
+        }
     }
 }

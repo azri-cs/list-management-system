@@ -29,7 +29,9 @@ class OptionalSeeder extends Seeder
         $admin->assignRole('admin');
         $user->assignRole('user');
 
-        Tag::factory(10)->create();
+        Tag::factory(10)->create([
+            'created_by' => 2,
+        ]);
         Listing::factory(5)->create([
             'created_by' => 2,
         ]);

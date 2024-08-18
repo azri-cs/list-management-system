@@ -19,6 +19,10 @@
                     <x-nav-link :href="route('listing.index')" :active="request()->routeIs('listing.index')">
                         {{ __('Listing') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('tag.index')" :active="request()->routeIs('tag.index')">
+                        {{ __('Tags') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -107,6 +111,10 @@
 
             <x-responsive-nav-link :href="route('listing.index')" :active="request()->routeIs('listing.index')">
                 {{ __('Listing') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('tag.index')" :active="request()->routeIs('tag.index')">
+                {{ __('Tags') }}
             </x-responsive-nav-link>
         </div>
 
