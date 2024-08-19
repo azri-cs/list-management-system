@@ -14,4 +14,8 @@ class ListingController extends Controller
             'listings' => $listings,
         ]);
     }
+
+    public function offlineIndex(){
+        return 'Offline View';
+    }
 }

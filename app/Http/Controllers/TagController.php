@@ -13,4 +13,8 @@ class TagController extends Controller
             'tags' => $tags,
         ]);
     }
+
+    public function offlineIndex(){
+        return 'Offline View';
+    }
 }
