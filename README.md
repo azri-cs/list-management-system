@@ -1,6 +1,15 @@
 # List Management System
 
-An open-source list management system built using Laravel & Livewire.
+An open-source list management system built using TALL stack.
+
+## To-Dos
+- [x] CRUD tags
+- [ ] CRUD Listing
+- [ ] CRUD Listing Item dynamically
+- [ ] Copy Listing Item as user-friendly text in Whatsapp to Clipboard
+- [ ] Offline/Guest version using LocalStorage
+- [ ] Manage Users
+- [ ] Manage Roles & Permissions
 
 ## Features
 
@@ -17,8 +26,6 @@ An open-source list management system built using Laravel & Livewire.
 ## Requirements
 
 - PHP 8.2+
-- Laravel 11.0+
-- Livewire 3.0+
 - MySQL 8.0+
 - NodeJS 20.0+
 
