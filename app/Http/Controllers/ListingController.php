@@ -16,6 +16,6 @@ class ListingController extends Controller
     }
 
     public function offlineIndex(){
-        return 'Offline View';
+        return view('listings.offline.index');
     }
 }
