@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Item;
 use App\Models\Listing;
-use App\Models\ListingItem;
+use App\Models\ItemListing;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -21,7 +22,7 @@ class ListingFactory extends Factory
     public function definition(): array
     {
         return [
-            'created_by' => User::factory(),
+            'created_by' => 2,
             'name' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
         ];
@@ -31,11 +32,11 @@ class ListingFactory extends Factory
     {
         return $this->afterCreating(function (Listing $listing) {
             $listing->tags()->attach(
-                Tag::factory()->count(random_int(1, 5))->create()
+                Tag::factory()->count(random_int(1, 5))->create(['created_by' => 2])
             );
 
-            $listing->items()->createMany(
-                ListingItem::factory()->count(random_int(3, 10))->make()->toArray()
+            $listing->items()->attach(
+                Item::factory()->count(random_int(1, 5))->create(['created_by' => 2])
             );
         });
     }

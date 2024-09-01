@@ -17,13 +17,13 @@ class OptionalSeeder extends Seeder
     public function run(): void
     {
         $admin = User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'user@azriadam.my',
-            'password' => Hash::make('abcd1234'),
-        ]);
-        $user = User::factory()->create([
             'name' => 'Administrator',
             'email' => 'admin@azriadam.my',
+            'password' => Hash::make('abcd1234'),
+        ]);
+        $user= User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'user@azriadam.my',
             'password' => Hash::make('abcd1234'),
         ]);
         $admin->assignRole('admin');

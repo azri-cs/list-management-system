@@ -3,11 +3,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="w-full flex items-center justify-between mb-4 px-6 sm:px-0">
                 <h2 class="text-3xl font-bold dark:text-white">{{__('Listings')}}</h2>
-                <a href="#">
-                    <x-primary-button type="button" class="ms-3">
-                        {{ __('Create New') }}
-                    </x-primary-button>
-                </a>
+                <x-primary-button type="button" class="ms-3" x-data="" x-on:click="$dispatch('open-modal', 'create-listing')">
+                    {{ __('Create New') }}
+                </x-primary-button>
             </div>
 
             <!-- Mobile view (cards) -->
@@ -127,4 +125,8 @@
             </div>
         </div>
     </div>
+
+    <x-modal name="create-listing" :show="false" focusable>
+        <livewire:create-listing />
+    </x-modal>
 </x-app-layout>

@@ -2,21 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class ListingItem extends Model
+class ItemListing extends Pivot
 {
-    use HasFactory, SoftDeletes;
+    public $timestamps = false;
 
     protected $fillable = [
-        'listing_id', 'key', 'value'
+        'item_id',
+        'listing_id',
     ];
 
     public function listing(): BelongsTo
     {
         return $this->belongsTo(Listing::class);
+    }
+
+    public function item(): BelongsTo
+    {
+        return $this->belongsTo(Item::class);
     }
 }

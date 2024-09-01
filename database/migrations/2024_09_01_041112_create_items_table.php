@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tags', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('created_by')->nullable()->constrained('users');
-            $table->string('color')->nullable()->after('name');
+            $table->string('key');
+            $table->string('value');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -22,9 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tags', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('created_by');
-            $table->dropColumn('color');
-        });
+        Schema::dropIfExists('items');
     }
 };

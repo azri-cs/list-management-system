@@ -27,9 +27,9 @@ class Listing extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function items(): HasMany
+    public function items(): BelongsToMany
     {
-        return $this->hasMany(ListingItem::class);
+        return $this->belongsToMany(Item::class);
     }
 
     public function scopeListing(Builder $query): void

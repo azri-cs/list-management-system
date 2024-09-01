@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Tag;
+use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -49,7 +50,7 @@ class EditTag extends Component
         $this->redirectRoute('tag.index');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.edit-tag');
     }

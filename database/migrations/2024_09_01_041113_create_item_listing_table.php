@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Item;
 use App\Models\Listing;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -12,13 +13,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('listing_items', function (Blueprint $table) {
-            $table->id();
+        Schema::create('item_listing', function (Blueprint $table) {
+            $table->foreignIdFor(Item::class, 'item_id')->constrained();
             $table->foreignIdFor(Listing::class, 'listing_id')->constrained();
-            $table->string('key');
-            $table->string('value');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('listing_items');
+        Schema::dropIfExists('item_listing');
     }
 };
