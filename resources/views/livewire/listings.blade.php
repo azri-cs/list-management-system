@@ -62,6 +62,19 @@
                                         </g>
                                     </svg>
                                 </a>
+                                <a wire:click="copyListing({{ $listing->id }})" href="#" class="inline-flex items-center px-4 py-2 rounded-md">
+                                    <svg id="copyIcon{{ $listing->id }}" viewBox="0 0 24 24" fill="none" class="w-8 h-auto text-gray-700 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-500">
+                                        <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <svg id="tickIcon{{ $listing->id }}" viewBox="0 0 24 24" fill="none" class="hidden w-8 h-auto text-emerald-700 dark:text-emerald-500 hover:text-emerald-500 dark:hover:text-emerald-300">
+                                        <g stroke-width="0"></g>
+                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g>
+                                            <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M7.75 12L10.58 14.83L16.25 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </g>
+                                    </svg>
+                                </a>
                             </td>
                         </tr>
                     @empty
@@ -83,4 +96,27 @@
     <x-modal name="listings-create" :show="false" focusable>
         <livewire:listings-create />
     </x-modal>
+
+    @script
+    <script>
+        $wire.on('clipboard-copy', event => {
+            navigator.clipboard.writeText(event[0].text)
+                .then(() => {
+                    const copyIcon = document.getElementById(`copyIcon${event[0].id}`);
+                    const tickIcon = document.getElementById(`tickIcon${event[0].id}`);
+
+                    copyIcon.classList.add('hidden');
+                    tickIcon.classList.remove('hidden');
+
+                    setTimeout(() => {
+                        tickIcon.classList.add('hidden');
+                        copyIcon.classList.remove('hidden');
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+        });
+    </script>
+    @endscript
 </div>

@@ -17,6 +17,19 @@ class Listings extends Component
         Listing::where('id', $listId)->delete();
     }
 
+    public function copyListing(int $listId)
+    {
+        $listing = Listing::where('id', $listId)->first();
+        $items = $listing->items;
+        $details_string = $items->map(function($item) {
+            return "{$item->key}: {$item->value}";
+        })->implode("\n");
+        $this->dispatch('clipboard-copy', [
+            'text' => $details_string,
+            'id' => $listId,
+        ]);
+    }
+
     #[Title('Listing List')]
     public function render(): View
     {
