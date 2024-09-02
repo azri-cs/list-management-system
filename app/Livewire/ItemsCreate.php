@@ -28,7 +28,7 @@ class ItemsCreate extends Component
         $this->reset(['key', 'value']);
         $this->dispatch('item-created');
         $this->dispatch('close-modal', 'create-item');
-        $this->redirectRoute('item.index');
+        $this->redirectRoute('items.index');
     }
 
     public function render(): View

@@ -39,7 +39,7 @@ class EditTag extends Component
             'color' => $this->tag->color
         ]);
         $this->dispatch('close-modal', 'edit-tag-' . $this->tag->id);
-        $this->redirectRoute('tag.index');
+        $this->redirectRoute('tags.index');
     }
 
     public function deleteTag(): void
@@ -47,7 +47,7 @@ class EditTag extends Component
         $this->tag->delete();
         $this->dispatch('tag-deleted', ['id' => $this->tag->id]);
         $this->dispatch('close-modal', 'edit-tag-' . $this->tag->id);
-        $this->redirectRoute('tag.index');
+        $this->redirectRoute('tags.index');
     }
 
     public function render(): View

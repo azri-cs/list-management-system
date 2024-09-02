@@ -28,7 +28,7 @@ class CreateTag extends Component
         $this->reset(['name', 'color']);
         $this->dispatch('tag-created');
         $this->dispatch('close-modal', 'create-tag');
-        $this->redirectRoute('tag.index');
+        $this->redirectRoute('tags.index');
     }
 
     public function render(): View

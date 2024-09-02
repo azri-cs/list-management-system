@@ -39,7 +39,7 @@ class ItemsEdit extends Component
             'value' => $this->item->value
         ]);
         $this->dispatch('close-modal', 'items-edit' . $this->item->id);
-        $this->redirectRoute('item.index');
+        $this->redirectRoute('items.index');
     }
 
     public function render(): View

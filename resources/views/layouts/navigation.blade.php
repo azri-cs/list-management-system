@@ -16,15 +16,15 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('item.index')" :active="request()->routeIs('item.index')">
+                    <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
                         {{ __('Items') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('tag.index')" :active="request()->routeIs('tag.index')">
+                    <x-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.index')">
                         {{ __('Tags') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('listing.index')" :active="request()->routeIs('listing.index')">
+                    <x-nav-link :href="route('listings.index')" :active="request()->routeIs('listings.index')">
                         {{ __('Listings') }}
                     </x-nav-link>
                 </div>
@@ -113,15 +113,15 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('item.index')" :active="request()->routeIs('item.index')">
+            <x-responsive-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
                 {{ __('Items') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('tag.index')" :active="request()->routeIs('tag.index')">
+            <x-responsive-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.index')">
                 {{ __('Tags') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('listing.index')" :active="request()->routeIs('listing.index')">
+            <x-responsive-nav-link :href="route('listings.index')" :active="request()->routeIs('listings.index')">
                 {{ __('Listings') }}
             </x-responsive-nav-link>
         </div>
