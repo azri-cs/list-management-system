@@ -12,10 +12,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/offline/tags', [TagController::class, 'offlineIndex'])->name('offline.tags.index');
 Route::get('/offline/listings', [ListingController::class, 'offlineIndex'])->name('offline.listings.index');
 
