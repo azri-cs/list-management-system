@@ -32,13 +32,13 @@
         </div>
 
         <div class="flex justify-between">
-            <x-primary-button type="submit">
-                {{ __('Update') }}
-            </x-primary-button>
-
             <x-danger-button type="button" x-data="" x-on:click="$dispatch('open-modal', 'delete-tag-{{ $tag->id }}')">
                 {{ __('Delete') }}
             </x-danger-button>
+
+            <x-primary-button type="submit">
+                {{ __('Update') }}
+            </x-primary-button>
         </div>
     </form>
 

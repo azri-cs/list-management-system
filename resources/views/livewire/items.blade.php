@@ -63,7 +63,7 @@
                         </x-modal>
                     @empty
                         <tr>
-                            <td class="px-6 py-4 text-sm" colspan="3">
+                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 dark:text-white" colspan="3">
                                 {{ __('No items were found.') }}
                             </td>
                         </tr>

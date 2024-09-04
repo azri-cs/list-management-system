@@ -31,15 +31,19 @@
                         </div>
                     @endforeach
 
-                    <button type="button" wire:click="addItemSelection" class="mt-4 px-4 py-2 text-white bg-emerald-500 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-500 rounded-md font-semibold text-xs uppercase tracking-widest">
-                        + Add Item
-                    </button>
+                    <div class="flex items-center justify-end space-x-2 mb-2">
+                        <button type="button" wire:click="addItemSelection" class="mt-4 px-4 py-2 text-white bg-emerald-500 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-500 rounded-md font-semibold text-xs uppercase tracking-widest">
+                            + Add Item
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <button type="submit" class="mt-4 px-4 py-2 bg-gray-800 dark:bg-white rounded-md font-semibold text-xs text-white dark:text-black uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-gray-200">
-                Save Listing
-            </button>
+            <div class="flex w-full items-center justify-end mt-4">
+                <x-primary-button class="ml-4">
+                    {{ __('Save Listing') }}
+                </x-primary-button>
+            </div>
         </form>
     </div>
 </div>

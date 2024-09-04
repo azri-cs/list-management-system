@@ -30,7 +30,7 @@
         <div class="min-h-screen flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="{{ url('/') }}">
-                    <x-application-logo class="h-20 w-auto text-gray-700 lg:h-28 lg:text-gray-500" />
+                    <x-application-logo class="h-20 w-auto lg:h-28 fill-none text-green-700 dark:text-green-500" />
                 </a>
             </div>
 

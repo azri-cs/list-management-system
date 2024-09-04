@@ -17,7 +17,7 @@ class Listings extends Component
         Listing::where('id', $listId)->delete();
     }
 
-    public function copyListing(int $listId)
+    public function copyListing(int $listId): void
     {
         $listing = Listing::where('id', $listId)->first();
         $items = $listing->items;

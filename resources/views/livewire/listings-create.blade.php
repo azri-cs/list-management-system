@@ -16,7 +16,7 @@
             <x-input-error :messages="$errors->get('description')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex w-full items-center justify-end mt-4">
             <x-primary-button class="ml-4">
                 {{ __('Create') }}
             </x-primary-button>
