@@ -6,6 +6,8 @@ use App\Http\Controllers\TagController;
 use App\Livewire\Items;
 use App\Livewire\Listings;
 use App\Livewire\ListingsEdit;
+use App\Livewire\OfflineItems;
+use App\Livewire\OfflineListings;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,7 +15,9 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/offline/tags', [TagController::class, 'offlineIndex'])->name('offline.tags.index');
-Route::get('/offline/listings', [ListingController::class, 'offlineIndex'])->name('offline.listings.index');
+//Route::get('/offline/listings', [ListingController::class, 'offlineIndex'])->name('offline.listings.index');
+Route::get('/offline/listings', OfflineListings::class)->name('offline.listings.index');
+Route::get('/offline/items', OfflineItems::class)->name('offline.items.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -52,7 +52,7 @@
                     </div>
 
                     <nav class="col-span-2 flex flex-1 lg:justify-end">
-                        <a href="{{ route('offline.listings.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
+                        <a href="{{ route('offline.items.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
                             {{__('Try offline for free!')}}
                         </a>
                         <div class="mx-12"></div>
