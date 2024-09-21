@@ -59,5 +59,11 @@ export const localStorageService = {
         const listings = this.getListings();
         const newListings = listings.filter(listing => listing.id !== id);
         this.setListings(newListings);
+    },
+
+    getListing(id) {
+        const listings = this.getListings();
+        const index = listings.findIndex(l => l.id === id);
+        return listings[index];
     }
 };

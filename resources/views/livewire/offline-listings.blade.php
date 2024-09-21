@@ -111,7 +111,7 @@
                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                        required>
                             </div>
-                            
+
                             <div>
                                 <label for="description"
                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
@@ -157,6 +157,19 @@
                             <button onclick="deleteListing(${listing.id})" class="text-red-500 dark:text-red-600 hover:text-black dark:hover:text-white px-4 py-2 rounded-md">
                                 <svg class="w-6 h-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M19 7L18.1327 19.1425C18.0579 20.1891 17.187 21 16.1378 21H7.86224C6.81296 21 5.94208 20.1891 5.86732 19.1425L5 7M10 11V17M14 11V17M15 7V4C15 3.44772 14.5523 3 14 3H10C9.44772 3 9 3.44772 9 4V7M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <button onclick="copyListing(${listing.id})" class="text-red-500 dark:text-red-600 hover:text-black dark:hover:text-white px-4 py-2 rounded-md">
+                                <svg id="copyIcon${listing.id}" viewBox="0 0 24 24" fill="none" class="w-6 h-auto text-gray-700 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-500">
+                                    <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <svg id="tickIcon${listing.id}" viewBox="0 0 24 24" fill="none" class="hidden w-6 h-auto text-emerald-700 dark:text-emerald-500 hover:text-emerald-500 dark:hover:text-emerald-300">
+                                    <g stroke-width="0"></g>
+                                    <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g>
+                                        <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M7.75 12L10.58 14.83L16.25 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </g>
                                 </svg>
                             </button>
                         </div>
@@ -351,6 +364,32 @@
                 setTimeout(() => {
                     alertContainer.innerHTML = '';
                 }, 3000);
+            }
+
+            function copyListing(id) {
+                let listing = localStorageService.getListing(id);
+                const formattedItems = listing.items
+                    .map(item => `${item.key}: ${item.value}`)
+                    .join('\n');
+
+                navigator.clipboard.writeText(formattedItems)
+                    .then(() => {
+                        const copyIcon = document.getElementById(`copyIcon${id}`);
+                        const tickIcon = document.getElementById(`tickIcon${id}`);
+
+                        if (copyIcon && tickIcon) {
+                            copyIcon.classList.add('hidden');
+                            tickIcon.classList.remove('hidden');
+
+                            setTimeout(() => {
+                                tickIcon.classList.add('hidden');
+                                copyIcon.classList.remove('hidden');
+                            }, 2000);
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy text: ', err);
+                    });
             }
         </script>
     </div>

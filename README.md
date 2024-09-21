@@ -2,16 +2,6 @@
 
 An open-source list management system built using TALL stack.
 
-## To-Dos
-- [x] CRUD Tags
-- [x] CRUD Items
-- [x] CRUD Listing
-- [x] Copy Item Listing as user-friendly text in Whatsapp to Clipboard
-- [ ] Tagging a listing
-- [ ] Offline/Guest version using LocalStorage
-- [ ] Manage Users
-- [ ] Manage Roles & Permissions
-
 ## Features
 
 ### Admin Features

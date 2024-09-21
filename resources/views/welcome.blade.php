@@ -52,28 +52,28 @@
                     </div>
 
                     <nav class="col-span-2 flex flex-1 lg:justify-end">
-                        <a href="{{ route('offline.items.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
-                            {{__('Try offline for free!')}}
+                        <a href="{{ route('offline.items.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 hover:underline hover:decoration-blue-500 dark:hover:decoration-sky-500 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
+                            {{__('Try offline mode')}}
                         </a>
                         <div class="mx-12"></div>
                         @guest
-                            <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
+                            <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 hover:underline hover:decoration-blue-500 dark:hover:decoration-sky-500 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
                                 {{__('Login')}}
                             </a>
-                            <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
+                            <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 hover:underline hover:decoration-blue-500 dark:hover:decoration-sky-500 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
                                 {{__('Register')}}
                             </a>
                         @endguest
                         @auth
-                            <a href="{{ route('items.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
+                            <a href="{{ route('items.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 hover:underline hover:decoration-blue-500 dark:hover:decoration-sky-500 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
                                 {{__('Items')}}
                             </a>
 
-                            <a href="{{ route('tags.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
+                            <a href="{{ route('tags.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 hover:underline hover:decoration-blue-500 dark:hover:decoration-sky-500 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
                                 {{__('Tags')}}
                             </a>
 
-                            <a href="{{ route('listings.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
+                            <a href="{{ route('listings.index') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 hover:underline hover:decoration-blue-500 dark:hover:decoration-sky-500 focus:outline-none focus-visible:ring-red-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-red-500">
                                 {{__('Listings')}}
                             </a>
                         @endauth
