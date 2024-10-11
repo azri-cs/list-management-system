@@ -1,18 +1,20 @@
 # List Management System
 
-An open-source list management system built using TALL stack.
+An open-source list management system built using TALL stack. A list is a collection of items with categorization using tag(s).
+User will be able to copy all the items in a list for quick-response and one source of truth when using Whatsapp as medium.
+User also will be able to use this as source of truth instead of scattered information inside documents.
+
+## Use-cases
+1. Initial profiling for job/house/room hunting via Whatsapp.
+2. Single source of truth.
 
 ## Features
-
-### Admin Features
-- Manage Lists
-- Manage Users
-- Manage Roles
-- Manage Permissions
 
 ### User Features
 - Manage Personal Profile
 - Manage Personal Lists
+- Manage Personal Tags
+- Manage Personal Items
 
 ## Requirements
 
@@ -57,8 +59,8 @@ An open-source list management system built using TALL stack.
 ## Usage
 
 1. Access the application at `http://localhost:8000`
-2. Login with the default admin credentials:
-    - Email: admin@azriadam.my
+2. Login with the default user credentials:
+    - Email: user@azriadam.my
     - Password: abcd2134
 
 ## Contributing

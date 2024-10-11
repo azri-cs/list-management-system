@@ -15,6 +15,36 @@
                 </x-primary-button>
             </div>
 
+            <div class="w-full px-6 mb-4">
+                <div class="flex flex-wrap gap-4 items-center">
+                    <div class="flex-1 min-w-[200px]">
+                        <input
+                            wire:model.live.debounce.300ms="search"
+                            type="text"
+                            placeholder="Search listings..."
+                            class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        >
+                    </div>
+                    <div class="flex gap-2">
+                        <x-tags-filter-dropdown
+                            label="Tags"
+                            :options="$tags->pluck('name', 'id')->toArray()"
+                            :selected="$selectedTags"
+                            :badge-count="count($selectedTags) ?: ''"
+                            wire:model.live="selectedTags"
+                        />
+                        @if($search || !empty($selectedTags))
+                            <button
+                                wire:click="clearFilters"
+                                class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-700"
+                            >
+                                Clear Filters
+                            </button>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
             <div class="w-full px-6 overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 border">
                     <thead class="bg-gray-50 dark:bg-gray-800">
@@ -93,7 +123,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td class="px-6 py-4 text-sm" colspan="3">
+                            <td class="px-6 py-4 text-sm dark:text-white" colspan="3">
                                 {{ __('No listings were found.') }}
                             </td>
                         </tr>
