@@ -12,12 +12,24 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('offline.items.index')" :active="request()->routeIs('offline.items.index')">
-                        {{ __('Offline Items') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('offline.listings.index')" :active="request()->routeIs('offline.listings.index')">
-                        {{ __('Offline Listings') }}
-                    </x-nav-link>
+                    @auth
+                        <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
+                            {{ __('Items') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.index')">
+                            {{ __('Tags') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('listings.index')" :active="request()->routeIs('listings.index')">
+                            {{ __('Listings') }}
+                        </x-nav-link>
+                    @else
+                        <x-nav-link :href="route('offline.items.index')" :active="request()->routeIs('offline.items.index')">
+                            {{ __('Offline Items') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('offline.listings.index')" :active="request()->routeIs('offline.listings.index')">
+                            {{ __('Offline Listings') }}
+                        </x-nav-link>
+                    @endauth
                 </div>
             </div>
 
@@ -90,12 +102,24 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('offline.items.index')" :active="request()->routeIs('offline.items.index')">
-                {{ __('Offline Items') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('offline.listings.index')" :active="request()->routeIs('offline.listings.index')">
-                {{ __('Offline Listings') }}
-            </x-responsive-nav-link>
+            @auth
+                <x-responsive-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
+                    {{ __('Items') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.index')">
+                    {{ __('Tags') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('listings.index')" :active="request()->routeIs('listings.index')">
+                    {{ __('Listings') }}
+                </x-responsive-nav-link>
+            @else
+                <x-responsive-nav-link :href="route('offline.items.index')" :active="request()->routeIs('offline.items.index')">
+                    {{ __('Offline Items') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('offline.listings.index')" :active="request()->routeIs('offline.listings.index')">
+                    {{ __('Offline Listings') }}
+                </x-responsive-nav-link>
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->
