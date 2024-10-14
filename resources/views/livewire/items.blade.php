@@ -8,6 +8,35 @@
                 </x-primary-button>
             </div>
 
+            <div class="w-full px-6 mb-4">
+                <div class="flex flex-wrap gap-4 items-center">
+                    <div class="flex-1 min-w-[200px]">
+                        <input
+                            wire:model.live.debounce.300ms="search"
+                            type="text"
+                            placeholder="Search items..."
+                            class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        >
+                    </div>
+                    <div class="flex gap-2">
+                        <select wire:model.live="perPage" class="rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            <option value="10">10 per page</option>
+                            <option value="20">20 per page</option>
+                            <option value="50">50 per page</option>
+                            <option value="-1">All</option>
+                        </select>
+                        @if($search)
+                            <button
+                                wire:click="clearFilters"
+                                class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-700"
+                            >
+                                Clear Filters
+                            </button>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
             <div class="w-full px-6">
                 <table class="min-w-full divide-y divide-gray-200 border">
                     <thead class="bg-gray-50 dark:bg-gray-800">

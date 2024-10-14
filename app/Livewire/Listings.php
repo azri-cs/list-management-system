@@ -15,10 +15,12 @@ class Listings extends Component
 
     public string $search = '';
     public array $selectedTags = [];
+    public int $perPage = 10;
 
     protected $queryString = [
         'search' => ['except' => ''],
-        'selectedTags' => ['except' => []]
+        'selectedTags' => ['except' => []],
+        'perPage' => ['except' => 10],
     ];
 
     public function selectAllTags(): void
@@ -33,6 +35,11 @@ class Listings extends Component
     }
 
     public function updatedSelectedTags(): void
+    {
+        $this->resetPage();
+    }
+
+    public function updatedPerPage(): void
     {
         $this->resetPage();
     }
@@ -77,7 +84,11 @@ class Listings extends Component
                     $query->whereIn('tags.id', $this->selectedTags);
                 });
             })
-            ->paginate(5);
+            ->when($this->perPage !== -1, function ($query) {
+                return $query->paginate($this->perPage);
+            }, function ($query) {
+                return $query->get();
+            });
 
         $tags = Tag::orderBy('name')->get();
 

@@ -33,6 +33,12 @@
                             :badge-count="count($selectedTags) ?: ''"
                             wire:model.live="selectedTags"
                         />
+                        <select wire:model.live="perPage" class="rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            <option value="10">10 per page</option>
+                            <option value="20">20 per page</option>
+                            <option value="50">50 per page</option>
+                            <option value="-1">All</option>
+                        </select>
                         @if($search || !empty($selectedTags))
                             <button
                                 wire:click="clearFilters"
@@ -130,9 +136,11 @@
                     @endforelse
                     </tbody>
                 </table>
-                <div class="mt-3">
-                    {!! $listings->links() !!}
-                </div>
+                @if($perPage !== -1)
+                    <div class="mt-3">
+                        {{ $listings->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>
