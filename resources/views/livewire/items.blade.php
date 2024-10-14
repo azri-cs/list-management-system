@@ -111,9 +111,11 @@
                     @endforelse
                     </tbody>
                 </table>
-                <div class="mt-3">
-                    {!! $items->links() !!}
-                </div>
+                @if($perPage !== -1)
+                    <div class="mt-3">
+                        {{ $listings->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>
