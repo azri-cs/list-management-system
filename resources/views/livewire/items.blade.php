@@ -113,7 +113,7 @@
                 </table>
                 @if($perPage !== -1)
                     <div class="mt-3">
-                        {{ $listings->links() }}
+                        {{ $items->links() }}
                     </div>
                 @endif
             </div>
