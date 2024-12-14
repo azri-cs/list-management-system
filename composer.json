@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "aws/aws-sdk-php": "^3.321",
         "calebporzio/sushi": "^2.5",
         "intervention/image": "^3.7",
         "lab404/laravel-impersonate": "^1.7",
@@ -14,7 +15,7 @@
         "livewire/livewire": "^3.0",
         "opcodesio/log-viewer": "^3.10",
         "realrashid/sweet-alert": "^7.2",
-        "spatie/browsershot": "^4.1",
+        "spatie/browsershot": "^5.0",
         "spatie/laravel-medialibrary": "^11.7",
         "spatie/laravel-permission": "^6.9",
         "yajra/laravel-datatables-oracle": "^11"
